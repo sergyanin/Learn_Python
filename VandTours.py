@@ -5,6 +5,8 @@ import Trip_news_data as tnd
 from bs4 import BeautifulSoup
 import requests
 import short_url
+from resorts import resorts
+
 
 parser = Parser('https://vandrouki.tours/default-city/budet-krasivo-3-7-nochej-v-iordanii-ot-12100-s-cheloveka-kucha-dat-ves-dekabr-bez-viz/',
                 'newsVTours.txt', tnd.data[0], False)
