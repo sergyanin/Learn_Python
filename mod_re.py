@@ -14,7 +14,7 @@ db = sqlite3.connect('countries.sqlite')
 c = db.cursor()
 rg = 'Иркутск'
 
-c.execute(f"SELECT country_id FROM city WHERE name = ?",(rg,))
+c.execute("SELECT country_id FROM city WHERE name= ?", (rg,))
 res = c.fetchall()
 
 print(res)
