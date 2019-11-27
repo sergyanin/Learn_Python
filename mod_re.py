@@ -12,7 +12,7 @@ t_list = list(set(t_list) - set(prepositions))
 
 db = sqlite3.connect('countries.sqlite')
 c = db.cursor()
-rg = 'Пекин'
+rg = 'Дзержинск'
 
 # c.execute("SELECT country_id FROM city WHERE name= ?", (rg,))
 # res = c.fetchall()
@@ -20,7 +20,7 @@ rg = 'Пекин'
 # res_country = c.fetchall()
 # print(res_country[0][0])
 
-c.execute("SELECT city.name, country.name  FROM country LEFT JOIN city ON country.country_id = city.country_id WHERE city.name = ?", (rg,))
+c.execute("SELECT city.name, region.name, country.name  FROM country LEFT JOIN region ON country.country_id = region.country_id LEFT JOIN city ON region.region_id = city.region_id WHERE city.name = ?", (rg,))
 res_country_1 = c.fetchall()
 print(res_country_1)
 db.commit()
