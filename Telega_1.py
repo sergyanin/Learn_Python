@@ -13,8 +13,6 @@ api_hash = '9aaad9a87a58f309f44d599d2da55bde'
 client = TelegramClient('Second', api_id, api_hash)
 
 
-
-
 @client.on(events.NewMessage(chats=(-1001164207750)))
 async def normal_handler(event):
     # print(event.message)
@@ -31,7 +29,7 @@ async def normal_handler(event):
 async def normal_handler(event):
     # print(event.message)
     mess_dat = (datetime.utcnow() + timedelta(hours=3)
-                ).strftime("%d.%m.%Y\n%H:%M\n")    
+                ).strftime("%d.%m.%Y\n%H:%M\n")
     user_mess = event.message.to_dict()['message']
     full_msg = f'**{mess_dat}**\n{user_mess}'
     # print(mess_date = str(event.message.to_dict()['date']))
@@ -42,7 +40,7 @@ async def normal_handler(event):
 async def normal_handler(event):
     # print(event.message)
     mess_dat = (datetime.utcnow() + timedelta(hours=3)
-                ).strftime("%d.%m.%Y\n%H:%M\n")    
+                ).strftime("%d.%m.%Y\n%H:%M\n")
     user_mess = event.message.to_dict()['message']
     full_msg = f'**{mess_dat}**\n{user_mess}'
     # print(mess_date = str(event.message.to_dict()['date']))
@@ -50,10 +48,12 @@ async def normal_handler(event):
 while True:
     try:
         client.start()
-        
+
+    except KeyboardInterrupt:
+        break
+
     except Exception as e:
 
         print(e)
         time.sleep(15)
         client.run_until_disconnected()
-    
