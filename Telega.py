@@ -6,7 +6,7 @@ from resorts import resorts
 api_id = 1012339
 api_hash = '9aaad9a87a58f309f44d599d2da55bde'
 
-client = TelegramClient('First', api_id, api_hash)
+client = TelegramClient('Second', api_id, api_hash)
 
 
 
@@ -38,11 +38,11 @@ words = resorts['Таиланд']
 #         print(i)
 
 
-result = client.iter_messages(-1001164207750, limit=30)
+result = client.iter_messages(-1001164207750, limit=50)
 for message in result:
     for word in words:
         if re.search(word, str(message)):
-            client.send_message(-1001329672585, str(message.text))
+            print((message.text))
                 
     
 

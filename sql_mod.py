@@ -1,6 +1,7 @@
 import re
 import sqlite3
 from sqlite3 import Error
+import re_mod
 
 
 # def sql_connection():
@@ -41,13 +42,7 @@ def sql_search(word):
     return found_item
 
 
-prepositions = ['В', 'Без', 'До', 'Из', 'К', 'На', 'По', 'О', 'От', 'Перед',
-                'При', 'Через', 'С', 'У', 'И', 'Нет', 'За', 'Над', 'Для', 'Об', 'Под', 'Про', 'Тур',]
 
-w = 'Питер! Своё родное: Тур в Сочи на неделю за 4100 с каждого. Старт 30 ноября из Пулково: '
-
-t_list = re.findall(r'[А-ЯЁ]\w+', w)
-cities = list(set(t_list) - set(prepositions))
 # print(cities)
 
 # db = sqlite3.connect('countries.sqlite')
